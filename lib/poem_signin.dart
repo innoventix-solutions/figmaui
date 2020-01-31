@@ -35,18 +35,8 @@ class _sign_inState extends State<sign_in> {
             SizedBox(height: 107,),
               new Container(
                 margin: EdgeInsets.only(left: 20.0,right: 130.0),
-                child: new TextField(
-                  controller: username,
-                  decoration: InputDecoration(
-                      suffixIcon: new GestureDetector(
-                        onTap: (){},
-                        child: Container(height: 10,width: 10,
-                            child: Image.network('https://cdn3.iconfinder.com/data/icons/show-and-hide-password/100/show_hide_password-08-128.png',height: 20,width: 20,)),
-                      ),
-                      labelText: "Username*",
-                      labelStyle: new TextStyle(fontSize: 16.0)
-                  ),
-                ),
+                child: new CustomTextfieldusername(text: "Username*",Fontsize: 14.0,controller: username,
+                    icon: Icon(Icons.remove_red_eye,size: 30,)),
               ),
               SizedBox(
                 height: 5.0,
@@ -68,17 +58,8 @@ class _sign_inState extends State<sign_in> {
                   children: <Widget>[
                     Flexible(
                       flex: 2,
-                      child: new TextField(
-                        controller: password,
-                        decoration: InputDecoration(
-                            suffixIcon: new GestureDetector(
-                              onTap: (){},
-                              child: Image.network('https://cdn3.iconfinder.com/data/icons/show-and-hide-password/100/show_hide_password-08-128.png',height: 20,width: 20,),
-                            ),
-                            labelText: "Password*",
-                            labelStyle: new TextStyle(fontSize: 16.0,fontFamily: 'sfpro')
-                        ),
-                      ),
+                      child: CustomTextfield_password(text: "Password*",Fontsize: 14.0,controller: password,
+                      icon: Icon(Icons.remove_red_eye,size: 30,)),
                     ),
                     Flexible(
                       child: new FlatButton(
@@ -110,32 +91,18 @@ class _sign_inState extends State<sign_in> {
 
               new FlatButton(
                 onPressed: (){},
-                child: new Text("Sign in",style: new TextStyle(color: fColorBlue,fontSize: 25.0,fontWeight: FontWeight.bold,fontFamily: 'sfpro'),),
+                child: new signin(fontsize: 25.0,text: "Sign in",clr: fColorBlue,)
               ),
               new SizedBox(
                 height: 15.0,
               ),
-              new Text.rich(
-                new TextSpan(
-                  text: "No Account, ",
-                  style: new TextStyle(fontSize: 18.0,fontWeight: FontWeight.bold),
-                  children: [
-                    new TextSpan(
-                        text: "Sign Up",
-                        style: new TextStyle(color: fColorBlue,fontSize: 18.0,fontWeight: FontWeight.bold,fontFamily: 'sfpro')
-                    )
-                  ],
-                ),
-              ),
+              new noaccount(text1: "No Account, ",text2: "Sign Up",fontsize: 18.0),
               new SizedBox(
-                  height: 40
+                  height: 200
               ),
               new Container(
 
-                child: new FlatButton(
-                  child: new Text("Provider Search",style: new TextStyle(fontSize: 16.0,color: fColorBlue,fontFamily: 'sfpro'),),
-                  onPressed: (){},
-                ),
+                child: Providerserch(text: "Provider Search",clr: fColorBlue,fontsize: 18.0),
               )
             ],
           ),

@@ -97,14 +97,15 @@ class globaldata_subtext_3rdline extends StatelessWidget {
 }
 
 //This is for textfield 1st - username
-class CustomTextfield extends StatelessWidget {
+class CustomTextfieldusername extends StatelessWidget {
 
   TextEditingController controller;
   String text;
   double Fontsize;
+  Icon icon;
 
 
-  CustomTextfield({this.controller,this.text,this.Fontsize
+  CustomTextfieldusername({this.controller,this.text,this.Fontsize,this.icon
   });
 
   @override
@@ -112,10 +113,7 @@ class CustomTextfield extends StatelessWidget {
     return TextField(
       controller: controller,
       decoration: InputDecoration(
-          suffixIcon: new GestureDetector(
-            onTap: (){},
-            child: Image.asset("assets/images/hide.png",width: 30,height: 30,),
-          ),
+          suffixIcon:icon,
           labelText: text,
           labelStyle: new TextStyle(fontSize: Fontsize)
       ),
@@ -131,9 +129,10 @@ class CustomTextfield_password extends StatelessWidget {
   TextEditingController controller;
   String text;
   double Fontsize;
+  Icon icon;
 
 
-  CustomTextfield_password({this.controller,this.text,this.Fontsize
+  CustomTextfield_password({this.controller,this.text,this.Fontsize,this.icon
   });
 
   @override
@@ -141,10 +140,7 @@ class CustomTextfield_password extends StatelessWidget {
     return TextField(obscureText: true,
       controller: controller,
       decoration: InputDecoration(
-          suffixIcon: new GestureDetector(
-            onTap: (){},
-            child: Image.asset("assets/icon/hide.png",width: 30,height: 30,),
-          ),
+          suffixIcon: icon,
           labelText: text,
           labelStyle: new TextStyle(fontSize: Fontsize)
       ),
@@ -154,4 +150,71 @@ class CustomTextfield_password extends StatelessWidget {
 }
 
 
+//This is for provier search on bottom
+class Providerserch extends StatelessWidget {
 
+
+  String text;
+  Color clr;
+  double fontsize;
+
+  Providerserch({this.text,this.fontsize,this.clr})  ;
+  @override
+  Widget build(BuildContext context) {
+    return new FlatButton(
+      child: new Text(text,style: TextStyle(fontSize: fontsize,color: clr,fontFamily: 'sfpro.ttf'),),
+      onPressed: (){},
+    );
+  }
+}
+
+
+//This is for no account
+class noaccount extends StatelessWidget {
+
+  String text1;
+  String text2;
+  double fontsize;
+
+
+
+  noaccount({
+    this.text1,
+    this.text2,
+    this.fontsize,
+
+});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text.rich(
+      new TextSpan(
+        text: text1,
+        style: new TextStyle(fontSize: fontsize,fontWeight: FontWeight.bold),
+        children: [
+          new TextSpan(
+              text: text2,
+              style: new TextStyle(color: fColorBlue,fontSize: fontsize,fontWeight: FontWeight.bold,fontFamily: 'sfpro')
+          )
+        ],
+      ),
+    );
+  }
+}
+
+//This is for sign in text
+
+class signin extends StatelessWidget {
+  String text;
+  Color clr;
+  double fontsize;
+
+
+  signin({this.text,this.fontsize,this.clr});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(text,style: new TextStyle(color: clr,fontSize: fontsize,
+        fontWeight: FontWeight.bold,fontFamily: 'sfpro'),);
+  }
+}
